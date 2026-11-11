@@ -4,26 +4,35 @@ A comprehensive, executive-ready **Sales and Operations Planning (S&OP)** analyt
 
 ---
 
-## 🏆 Project Overview
-Effective S&OP is critical for balancing market demand with inventory constraints, preventing costly stockouts, and optimizing working capital. This repository documents a complete assessment project—identifying structural flaws in raw operational data, implementing advanced mathematical fixes, and visualizing performance through an interactive Excel dashboard.
+## 🎯 Executive Summary & Business Context
+Effective Sales and Operations Planning (S&OP) is critical for balancing market demand with inventory constraints, preventing costly stockouts, and optimizing working capital. This project addresses structural and logical flaws in raw operational datasets, implements advanced mathematical validations, and delivers an interactive executive dashboard to drive data-backed supply chain decisions.
 
 ---
 
-## 🛠️ Key Technical & Supply Chain Highlights
+## 🔍 Data Quality Audit & Analytical Findings
+During the initial exploratory data analysis and quality audit of the raw dataset, several critical logic flaws and discrepancies were identified and resolved:
 
-* **Advanced Formulas & Logic Validation**: 
-  * Implemented absolute error normalization (`=ABS()`) to resolve sign discrepancies in `Forecast Error` calculations.
-  * Maintained directional `+/-` indicators in **Inventory Gap** (`Inventory Level - Demand Forecast`) to accurately segregate surplus inventory from critical stockouts.
-  * Configured dynamic rules for **Stock Status** and automated **Suggested Reorder Quantities**.
-* **Data Quality Audit & Correction**: Cleaned raw dataset structures, standardized unit-based metrics, and corrected misaligned KPI card formats (e.g., separating monetary and unit values).
-* **Executive Visualization & Layout**: 
-  * Real-time KPI summary cards (*Net Sales Value*, *Total Unit Sold*, *Avg Discount*, *Inventory Units*, and *Avg Forecast Accuracy*).
-  * Multi-dimensional performance tracking across regions, product categories, seasonal trends, and competitor pricing tiers (`Higher`/`Lower`/`Same`).
+* **Forecast Error Normalization (`ABS` Implementation)**: 
+  * *Issue*: The initial formula (`Demand Forecast - Units Sold`) produced negative values (`-5.96`, `-4.74`), which distorted aggregate accuracy metrics due to positive and negative values cancelling each other out.
+  * *Resolution*: Implemented absolute error normalization (`=ABS([@[Demand Forecast]]-[@[Units Sold]])`) to ensure consistent, accurate tracking of absolute forecast deviation.
+* **Inventory Gap & Stock Status Integrity**: 
+  * *Finding*: Maintained directional `+/-` indicators (`Inventory Level - Demand Forecast`) intentionally. This allows the system to clearly distinguish between surplus inventory (Healthy Stock) and critical shortages (Low Stock).
+* **UI/UX & Financial Formatting Standards**: 
+  * *Issue*: Unit-based KPIs (such as *Total Units Sold*) were incorrectly formatted with currency symbols (`$`), creating misleading business metrics.
+  * *Resolution*: Standardized formatting by stripping currency symbols from unit-based KPIs and aligning chart Y-axis baselines to zero to prevent visual distortion.
 
 ---
 
-## 📈 Dashboard Preview
-![S&OP Executive Dashboard](Dashboard_winner_style.png)
+## 📈 Key Insights & Operational Metrics
+* **Inventory Optimization**: Identified instances of critical low stock (e.g., Row 7 showing a deficit of `-1.82` units), automatically triggering a **Suggested Reorder Quantity** of `2` units to mitigate stockouts.
+* **Sales & Regional Performance**: Tracked total net sales value (`$494.97M`) and regional revenue distribution evenly across East, North, South, and West regions (~25% each).
+* **Pricing & Discount Impact**: Evaluated competitor pricing strategies (`Higher`, `Lower`, `Same`) and analyzed discount tier efficiency against total sales value.
+
+---
+
+## 🛠️ Tech Stack & Methodologies
+* **Tool**: Microsoft Excel (Advanced Formulas, Pivot Tables, Pivot Charts, Slicers, Conditional Formatting, Custom Number Formatting).
+* **Domain Expertise**: Sales & Operations Planning (S&OP), Supply Chain Analytics, Inventory Gap Analysis, and Error Metric Standardization (MAE/Accuracy).
 
 ---
 
@@ -32,4 +41,4 @@ Effective S&OP is critical for balancing market demand with inventory constraint
 ```text
 ├── Winner_Style_Data_Analyst_Assessment_Tarakuzzaman.xlsx   # Audited & formula-validated Excel model
 ├── Dashboard_winner_style.png                               # High-resolution screenshot of the final dashboard
-└── README.md                                                # Project documentation
+└── README.md                                                # Project documentation & analytical report
