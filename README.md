@@ -2,6 +2,9 @@
 
 A comprehensive, executive-ready **Sales and Operations Planning (S&OP)** analytical solution and data quality audit built entirely in Microsoft Excel. This project bridges supply chain management with robust data analytics, focusing on formula optimization, rigorous error normalization, and dynamic business intelligence reporting.
 
+## 📈 Dashboard Preview
+![S&OP Executive Dashboard](Dashboard_winner_style.png)
+
 ---
 
 ## 🎯 Executive Summary & Business Context
